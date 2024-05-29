@@ -15,24 +15,7 @@
     </style>
   </head>
   <body>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <c:forEach var="user" items="${users}">
-          <tr>
-            <th scope="row">${user.id}</th>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-          </tr>
-        </c:forEach>
-      </tbody>
-    </table>
+   
     <div class="py-3"></div>
     <div class="card w-50 m-auto">
       <div class="card-body">
@@ -59,28 +42,80 @@
             </div>
             <div class="m-auto w-70">
               <button type="submit" class="btn btn-primary">Submit</button>
+                 <button type="button" class="btn btn-primary px-1 " data-bs-toggle="modal" data-bs-target="#st">
+              Update User
+            </button> 
             </div>
+          
           </form>
-          <div class="text-end">
-            <button type="button" class="btn btn-primary text-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <div class="d-flex justify-content-end text-end">
+            
+            <button type="button" class="btn btn-success text-end " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Find User
+            </button>
+             
+            <button type="button" class="btn btn-danger text-end " data-bs-toggle="modal" data-bs-target="#static">
+              Delete  User
             </button>
           </div>
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Find User</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form action="getUser">
                     <div class="mb-3 w-70 m-auto">
-                      <label for="id" class="form-label">Id</label>
+                      <label for="id" class="form-label"> Enter Id</label>
                       <input type="text" class="form-control" id="id" name="id">
                     </div>
                     <div class="m-auto w-70">
                       <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+       <div class="modal fade" id="st" data-bs-backdrop="st" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Update User</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="updateUser" method="post">
+                    <div class="mb-3 w-70 m-auto">
+                      <label for="id" class="form-label"> Enter Id</label>
+                      <input type="text" class="form-control" id="id" name="id">
+                    </div>
+                    <div class="m-auto w-70">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="static" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete User</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="delUser" method="post">
+                    <div class="mb-3 w-70 m-auto">
+                      <label for="id" class="form-label"> Enter Id</label>
+                      <input type="text" class="form-control" id="id" name="id">
+                    </div>
+                    <div class="m-auto w-70">
+                      <button type="submit" class="btn btn-danger">Submit</button>
                     </div>
                   </form>
                 </div>
